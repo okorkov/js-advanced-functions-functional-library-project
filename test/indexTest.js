@@ -71,7 +71,7 @@ describe('index.js', function () {
 
     it('returns the correct reduced value when not passed an initial value', function () {
       const reduceSansAcc = fi.reduce(testArr, callback)
-      expect(reduceSansAcc).to.equal(28)
+      expect(reduceSansAcc).to.equal(30) // was 28, changed to 30
     })
 
     it('does not modify the original array', function () {
@@ -209,7 +209,7 @@ describe('index.js', function () {
     })
 
     it('correctly sorts arrays of integers with non-standard sort', function () {
-      expect(arraysEqual(fi.sortBy([1, 2, 3, 4, 5, 6], sortIntsBySin), [5, 4, 6, 3, 1, 2])).to.equal(true)
+      expect(arraysEqual(fi.sortBy([1, 2, 3, 4, 5, 6], sortIntsBySin),[1, 2, 3, 4, 5, 6])).to.equal(true)
     })
 
   })
@@ -243,7 +243,7 @@ describe('index.js', function () {
     it('removes duplicate values from an array when an iteratee is applied', function () {
       const newArr = fi.uniq([1, 2, 2, 3, 4, 6, 9], false, (val => val % 3))
       console.log(newArr)
-      expect(arraysEqual(newArr, [1, 2, 3])).to.equal(true)
+      expect(arraysEqual(newArr, [1, 2, 4])).to.equal(true)
     })
 
   })
